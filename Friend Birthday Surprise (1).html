@@ -137,8 +137,9 @@
 
         <!-- Progress Steps -->
         <div id="experienceProgress" class="w-full max-w-xs sm:max-w-sm mx-auto mb-6 flex items-center justify-between px-2">
-            <div class="flex items-center space-x-2 w-full">
+            <div class="flex items-center space-x-1.5 w-full">
                 <div class="step-dot flex-1 h-2 rounded-full bg-bday-500 transition-all"></div>
+                <div class="step-dot flex-1 h-2 rounded-full bg-white/50 transition-all"></div>
                 <div class="step-dot flex-1 h-2 rounded-full bg-white/50 transition-all"></div>
                 <div class="step-dot flex-1 h-2 rounded-full bg-white/50 transition-all"></div>
                 <div class="step-dot flex-1 h-2 rounded-full bg-white/50 transition-all"></div>
@@ -205,10 +206,33 @@
             </div>
         </div>
 
-        <!-- ================= STEP 2: Memory Gallery 3D Cards ================= -->
-        <div id="step2Memories" class="hidden w-full max-w-md bg-white/85 backdrop-blur-xl border border-white/80 rounded-3xl shadow-2xl p-6 sm:p-8 space-y-6">
+        <!-- ================= STEP 2: Dedicated Photo Gallery & Memories ================= -->
+        <div id="step2Photos" class="hidden w-full max-w-xl bg-white/90 backdrop-blur-xl border border-white/80 rounded-3xl shadow-2xl p-6 sm:p-8 space-y-6">
             <div class="text-center space-y-1">
-                <span class="text-xs font-bold tracking-wider text-bday-600 uppercase">Step 2 of 4 • Favorite Moments</span>
+                <span class="text-xs font-bold tracking-wider text-bday-600 uppercase">Step 2 of 5 • Photo Memories</span>
+                <h3 class="text-2xl font-serif font-bold text-slate-900">Moments We Treasure 📸</h3>
+                <p class="text-xs text-slate-500">A collection of special memories and favorite pictures together!</p>
+            </div>
+
+            <div id="photoGalleryGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[420px] overflow-y-auto p-1 hide-scrollbar">
+                <!-- Dynamic Photo Polaroid Cards Rendered Here -->
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <button onclick="nextStep(1)" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-xs transition">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Back to Cake
+                </button>
+                <button onclick="nextStep(3)" class="px-6 py-3 rounded-2xl bg-bday-500 hover:bg-bday-600 text-white font-bold text-sm shadow-md shadow-bday-500/20 transition flex items-center gap-2">
+                    <span>View Reason Cards</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= STEP 3: Memory Gallery 3D Cards ================= -->
+        <div id="step3Memories" class="hidden w-full max-w-md bg-white/85 backdrop-blur-xl border border-white/80 rounded-3xl shadow-2xl p-6 sm:p-8 space-y-6">
+            <div class="text-center space-y-1">
+                <span class="text-xs font-bold tracking-wider text-bday-600 uppercase">Step 3 of 5 • Favorite Highlights</span>
                 <h3 class="text-2xl font-serif font-bold text-slate-900">Why You're Amazing</h3>
                 <p class="text-xs text-slate-500">Tap on cards to flip & reveal the memory cards</p>
             </div>
@@ -217,45 +241,51 @@
                 <!-- Dynamic 3D Memory Cards -->
             </div>
 
-            <div class="flex justify-end pt-2">
-                <button onclick="nextStep(3)" class="px-6 py-3 rounded-2xl bg-bday-500 hover:bg-bday-600 text-white font-bold text-sm shadow-md shadow-bday-500/20 transition flex items-center gap-2">
-                    <span>Read Birthday Letter</span>
+            <div class="flex justify-between items-center pt-2">
+                <button onclick="nextStep(2)" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-xs transition">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Back to Photos
+                </button>
+                <button onclick="nextStep(4)" class="px-6 py-3 rounded-2xl bg-bday-500 hover:bg-bday-600 text-white font-bold text-sm shadow-md shadow-bday-500/20 transition flex items-center gap-2">
+                    <span>Read Letter</span>
                     <i class="fa-solid fa-envelope-open"></i>
                 </button>
             </div>
         </div>
 
-        <!-- ================= STEP 3: Heartfelt Letter ================= -->
-        <div id="step3Letter" class="hidden w-full max-w-lg bg-white/90 backdrop-blur-2xl border border-white/80 rounded-3xl shadow-2xl p-6 sm:p-8 space-y-6 text-center">
+        <!-- ================= STEP 4: Heartfelt Letter ================= -->
+        <div id="step4Letter" class="hidden w-full max-w-lg bg-white/90 backdrop-blur-2xl border border-white/80 rounded-3xl shadow-2xl p-6 sm:p-8 space-y-6 text-center">
             <div class="w-14 h-14 bg-bday-100 text-bday-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
                 <i class="fa-solid fa-heart-pulse"></i>
             </div>
 
             <div class="space-y-4">
                 <h3 class="text-2xl font-serif font-bold text-slate-900">From My Heart to Yours</h3>
-                <div class="p-6 bg-amber-50/80 border border-amber-200/80 rounded-2xl shadow-inner text-left">
-                    <p id="letterTextDisplay" class="font-hand text-xl sm:text-2xl text-slate-800 leading-relaxed min-h-[140px] whitespace-pre-line">
+                <div class="p-6 bg-amber-50/80 border border-amber-200/80 rounded-2xl shadow-inner text-left max-h-[360px] overflow-y-auto hide-scrollbar">
+                    <p id="letterTextDisplay" class="font-hand text-xl sm:text-2xl text-slate-800 leading-relaxed whitespace-pre-wrap break-words min-h-[140px]">
                         <!-- Typewriter text inserted here -->
                     </p>
                 </div>
             </div>
 
-            <div class="pt-2">
-                <button onclick="nextStep(4)" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-bday-500 to-rose-600 text-white font-bold text-sm shadow-lg shadow-bday-500/30 hover:scale-[1.02] transition">
+            <div class="pt-2 flex justify-between items-center">
+                <button onclick="nextStep(3)" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-xs transition">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Back
+                </button>
+                <button onclick="nextStep(5)" class="py-3.5 px-6 rounded-2xl bg-gradient-to-r from-bday-500 to-rose-600 text-white font-bold text-sm shadow-lg shadow-bday-500/30 hover:scale-[1.02] transition">
                     Grand Finale Celebration 🎉
                 </button>
             </div>
         </div>
 
-        <!-- ================= STEP 4: Grand Finale Screen ================= -->
-        <div id="step4Finale" class="hidden w-full max-w-lg bg-white/90 backdrop-blur-2xl border border-white/80 rounded-3xl shadow-2xl p-6 sm:p-10 space-y-6 text-center">
+        <!-- ================= STEP 5: Grand Finale Screen ================= -->
+        <div id="step5Finale" class="hidden w-full max-w-lg bg-white/90 backdrop-blur-2xl border border-white/80 rounded-3xl shadow-2xl p-6 sm:p-10 space-y-6 text-center">
             <div class="w-20 h-20 bg-gradient-to-tr from-amber-400 to-rose-500 text-white rounded-full flex items-center justify-center mx-auto text-4xl shadow-xl shadow-rose-500/30 animate-bounce-slow">
                 <i class="fa-solid fa-crown"></i>
             </div>
 
             <div class="space-y-2">
                 <span class="text-xs font-bold tracking-widest uppercase text-bday-600 bg-bday-100 px-3 py-1 rounded-full">Best Birthday Ever</span>
-                <h3 class="text-3xl font-serif font-bold text-slate-900" id="finaleTitle">Happy Birthday, Sarah! 👑</h3>
+                <h3 class="text-3xl font-serif font-bold text-slate-900" id="finaleTitle">Happy Birthday, Ankita! 👑</h3>
                 <p class="text-sm text-slate-600">May your year ahead be filled with endless joy, laughter, and magical moments!</p>
             </div>
 
@@ -314,6 +344,19 @@
                     </select>
                 </div>
 
+                <!-- Customized Photos Section -->
+                <div class="space-y-3 pt-2">
+                    <div class="flex items-center justify-between">
+                        <label class="block text-xs font-semibold text-slate-600">Photo Gallery Pictures & Captions</label>
+                        <button type="button" onclick="addPhotoEntryInput()" class="text-xs text-bday-600 hover:text-bday-700 font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-plus-circle"></i> Add Photo
+                        </button>
+                    </div>
+                    <div id="cfgPhotoInputsContainer" class="space-y-3 max-h-48 overflow-y-auto pr-1">
+                        <!-- Dynamic photo input fields -->
+                    </div>
+                </div>
+
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1">Heartfelt Letter Message</label>
                     <textarea id="cfgLetter" rows="4" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-bday-400 focus:outline-none"></textarea>
@@ -369,12 +412,19 @@
             recipient: "Ankita (Anku)",
             sender: "Your Bestie",
             theme: "light-blue",
-            letter: "Happy Birthday Anku! 🥳💙\n\nTo the most wonderful person who brings endless joy, light, and laughter into everyone's life—I hope your special day is as incredible as you are!\n\nThank you for always being there, for sharing all the crazy moments, and for making every memory so special. May this new year bring you all the happiness, success, and dreams you've been wishing for. Love you so much, Anku!",
+            letter: "Happy Birthday Anku! 🥳💙\n\nTo the most wonderful person who brings endless joy, light, and laughter into everyone's life I hope your special day is as incredible as you are!\n\nThank you for always being there, for sharing all the crazy moments, and for making every memory so special. May this new year bring you all the happiness, success, and dreams you've been wishing for(chatgpt msg).\n my words: Happy birthday Ankita😂\nPS: Love you so much🤗, Anku!",
+            photos: [
+                { url: "https://i.imgur.com/Jih86TLm.jpg", title: "Unforgettable Smile", caption: "Always lighting up every room with that happy energy, Anku!" },
+                { url: "https://i.imgur.com/WfpXDiK.jpeg", title: "Our Reunion", caption: "When we met after so many years. But seeing you and talking to you made that time disappear." },
+                { url: "https://i.imgur.com/kx5R9TJ.jpeg", title: "Sister's Wedding", caption: "That day when I saw you first time in suits." },
+                { url: "https://i.imgur.com/BaGA25o.jpeg", title: "Your help in Mother's day ", caption: "You are my savior that day for helping me in picking gift for my mother" },
+        { url: "https://i.imgur.com/aUIdEKh.jpeg", title: "Our movie date", caption: "It was a day well spent with my favourite person, we watched dhurandhar, aari aari aari" }
+            ],
             cards: [
-                { title: "Reason #1 You're Amazing", text: "Your smile and energy can brighten up even the dullest days, Anku!" },
-                { title: "Best Memory Together", text: "All our non-stop giggles, secrets, and unforgettable adventures!" },
+                { title: "You're Amazing", text: "Your smile and energy can brighten up even the dullest days, Anku!" },
+                { title: "Best Memory Together", text: "All our non-stop texting and having random conversations, laughing on lame jokes and our  unplanned trips" },
                 { title: "Wish For Your Year", text: "May this year fulfill all your biggest ambitions and wildest dreams!" },
-                { title: "Forever Bestie", text: "No matter what happens, I've always got your back. Happy Birthday!" }
+                { title: "Forever Bestie", text: "No matter what happens, I've always got your back. Happy Birthday cutieeee!" }
             ]
         };
 
@@ -459,11 +509,13 @@
         function renderStep(step) {
             currentStep = step;
 
-            const steps = ['step0Cover', 'step1Cake', 'step2Memories', 'step3Letter', 'step4Finale'];
+            const steps = ['step0Cover', 'step1Cake', 'step2Photos', 'step3Memories', 'step4Letter', 'step5Finale'];
             steps.forEach((id, idx) => {
                 const el = document.getElementById(id);
-                if (idx === step) el.classList.remove('hidden');
-                else el.classList.add('hidden');
+                if (el) {
+                    if (idx === step) el.classList.remove('hidden');
+                    else el.classList.add('hidden');
+                }
             });
 
             // Update Progress Dots
@@ -480,10 +532,12 @@
             } else if (step === 1) {
                 setupCandles();
             } else if (step === 2) {
-                renderMemoryCards();
+                renderPhotoGallery();
             } else if (step === 3) {
-                startTypewriterLetter();
+                renderMemoryCards();
             } else if (step === 4) {
+                startTypewriterLetter();
+            } else if (step === 5) {
                 document.getElementById('finaleTitle').innerText = `Happy Birthday, ${bdayData.recipient}! 👑`;
                 triggerConfettiExplosion();
                 playSound('fanfare');
@@ -536,65 +590,31 @@
                     const btnNext = document.getElementById('btnStep1Next');
                     btnNext.disabled = false;
                     btnNext.className = "w-full py-3.5 rounded-2xl bg-gradient-to-r from-bday-500 to-rose-500 hover:from-bday-600 hover:to-rose-600 text-white font-bold text-sm shadow-lg shadow-bday-500/30 transition transform hover:scale-[1.02]";
-                    btnNext.innerText = "Continue to Favorite Memories ✨";
+                    btnNext.innerText = "Continue to Photo Memories 📸";
                 }
             }
         }
 
-        /* Optional Microphone Blow Detection */
-        async function toggleMicrophone() {
-            const micBtn = document.getElementById('micToggleBtn');
-            const micLabel = document.getElementById('micLabel');
-            const micIcon = document.getElementById('micIcon');
-
-            if (!micActive) {
-                try {
-                    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                    initAudioContext();
-                    const source = audioCtx.createMediaStreamSource(micStream);
-                    micAnalyser = audioCtx.createAnalyser();
-                    micAnalyser.fftSize = 256;
-                    source.connect(micAnalyser);
-
-                    micActive = true;
-                    micIcon.className = "fa-solid fa-microphone text-rose-500 animate-pulse";
-                    micLabel.innerText = "Listening for blow...";
-                    checkBlowVolume();
-                } catch (err) {
-                    alert('Microphone access denied or not supported. You can tap the flames instead!');
-                }
-            } else {
-                stopMicrophone();
-            }
+        /* ================= STEP 2: PHOTO GALLERY RENDERING ================= */
+       /* ================= STEP 2: PHOTO GALLERY RENDERING ================= */
+        function renderPhotoGallery() {
+            const container = document.getElementById('photoGalleryGrid');
+            if (!container) return;
+        
+            container.innerHTML = bdayData.photos.map((item, idx) => `
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-100 flex flex-col space-y-2 transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-full h-56 rounded-xl overflow-hidden bg-slate-50 flex items-center justify-center relative">
+                        <img src="${item.url}" alt="${item.title}" class="max-w-full max-h-full w-auto h-auto object-contain rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=60'">
+                    </div>
+                    <div class="px-1 text-left">
+                        <h4 class="font-serif font-bold text-slate-900 text-sm">${item.title || 'Special Moment'}</h4>
+                        <p class="text-xs text-slate-600 leading-snug mt-0.5">${item.caption || ''}</p>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        function stopMicrophone() {
-            if (micStream) micStream.getTracks().forEach(track => track.stop());
-            micActive = false;
-            document.getElementById('micIcon').className = "fa-solid fa-microphone-slash text-slate-400";
-            document.getElementById('micLabel').innerText = "Enable Mic Blow";
-        }
-
-        function checkBlowVolume() {
-            if (!micActive) return;
-            const dataArray = new Uint8Array(micAnalyser.frequencyBinCount);
-            micAnalyser.getByteFrequencyData(dataArray);
-
-            let sum = 0;
-            for (let i = 0; i < dataArray.length; i++) {
-                sum += dataArray[i];
-            }
-            let average = sum / dataArray.length;
-
-            if (average > 45) { // Blow threshold
-                for (let i = 0; i < 3; i++) blowOutCandle(i);
-                stopMicrophone();
-            } else {
-                requestAnimationFrame(checkBlowVolume);
-            }
-        }
-
-        /* ================= STEP 2: MEMORY 3D FLIP CARDS ================= */
+        /* ================= STEP 3: MEMORY 3D FLIP CARDS ================= */
         function renderMemoryCards() {
             const container = document.getElementById('memoriesGrid');
             container.innerHTML = bdayData.cards.map((card, i) => `
@@ -623,14 +643,20 @@
         /* ================= STEP 3: TYPEWRITER LETTER ================= */
         function startTypewriterLetter() {
             const display = document.getElementById('letterTextDisplay');
+            const scrollBox = display?.parentElement;
+            if (!display) return;
+            
             display.innerText = "";
             let idx = 0;
-            const text = bdayData.letter;
-
+            const text = bdayData.letter || "";
+        
             function typeNextChar() {
                 if (idx < text.length) {
                     display.innerText += text.charAt(idx);
                     idx++;
+                    if (scrollBox) {
+                        scrollBox.scrollTop = scrollBox.scrollHeight;
+                    }
                     setTimeout(typeNextChar, 25);
                 }
             }
@@ -668,6 +694,37 @@
             document.getElementById('cfgSender').value = bdayData.sender;
             document.getElementById('cfgTheme').value = bdayData.theme;
             document.getElementById('cfgLetter').value = bdayData.letter;
+
+            renderPhotoFormInputs();
+        }
+
+        function renderPhotoFormInputs() {
+            const container = document.getElementById('cfgPhotoInputsContainer');
+            container.innerHTML = bdayData.photos.map((photo, i) => `
+                <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2 relative">
+                    <div class="flex justify-between items-center">
+                        <span class="text-[11px] font-bold text-slate-500 uppercase">Photo #${i + 1}</span>
+                        ${bdayData.photos.length > 1 ? `<button type="button" onclick="removePhotoEntry(${i})" class="text-rose-500 hover:text-rose-700 text-xs"><i class="fa-solid fa-trash"></i></button>` : ''}
+                    </div>
+                    <input type="text" placeholder="Image URL" value="${photo.url}" onchange="bdayData.photos[${i}].url=this.value" class="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs">
+                    <input type="text" placeholder="Photo Title" value="${photo.title || ''}" onchange="bdayData.photos[${i}].title=this.value" class="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold">
+                    <input type="text" placeholder="Caption / Message" value="${photo.caption || ''}" onchange="bdayData.photos[${i}].caption=this.value" class="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs">
+                </div>
+            `).join('');
+        }
+
+        function addPhotoEntryInput() {
+            bdayData.photos.push({
+                url: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&auto=format&fit=crop&q=60",
+                title: "New Memory",
+                caption: "Another unforgettable birthday moment with Anku!"
+            });
+            renderPhotoFormInputs();
+        }
+
+        function removePhotoEntry(index) {
+            bdayData.photos.splice(index, 1);
+            renderPhotoFormInputs();
         }
 
         function previewTheme(themeName) {
@@ -676,7 +733,7 @@
 
         function applyAndTestSurprise() {
             bdayData.recipient = document.getElementById('cfgRecipient').value || "Bestie";
-            bdayData.sender = document.getElementById('cfgSender').value || "Alex";
+            bdayData.sender = document.getElementById('cfgSender').value || "Yogesh";
             bdayData.theme = document.getElementById('cfgTheme').value;
             bdayData.letter = document.getElementById('cfgLetter').value;
 
@@ -687,7 +744,7 @@
 
         function updateShareLink() {
             bdayData.recipient = document.getElementById('cfgRecipient').value || "Bestie";
-            bdayData.sender = document.getElementById('cfgSender').value || "Alex";
+            bdayData.sender = document.getElementById('cfgSender').value || "Yogesh";
             bdayData.theme = document.getElementById('cfgTheme').value;
             bdayData.letter = document.getElementById('cfgLetter').value;
 
